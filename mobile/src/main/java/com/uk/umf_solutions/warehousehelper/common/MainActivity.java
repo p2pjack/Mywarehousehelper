@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -19,6 +20,7 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.uk.umf_solutions.warehousehelper.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,16 +31,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        GetFab();
+        GetDrawItem();
+    }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
+    private void GetDrawItem() {
         PrimaryDrawerItem item1 = new PrimaryDrawerItem()
                 .withIdentifier(1)
                 .withName(R.string.drawer_item_home);
@@ -53,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         new ProfileDrawerItem().withName("Eaun Ballinger")
                                 .withEmail("eaun.ballinger@gmail.com")
                                 .withIcon(getResources()
-                                .getDrawable(R.drawable.ic_favorites))
+                                        .getDrawable(R.drawable.ic_favorites))
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
@@ -71,16 +68,43 @@ public class MainActivity extends AppCompatActivity {
                         item1,
                         new DividerDrawerItem(),
                         item2,
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_settings)
+                        new DividerDrawerItem()
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         // do something with the clicked item :D
+                        if (drawerItem instanceof Nameable) {
+                            String name = ((Nameable)drawerItem)
+                                    .getName()
+                                    .getText(MainActivity.this);
+                            switch (name){
+
+                                case "Home":
+                                    Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT)
+                                            .show();
+                                    break;
+                                case "Settings":
+                                    Toast.makeText(MainActivity.this,"Settings",Toast.LENGTH_SHORT)
+                                            .show();
+                                    break;
+                            }
+                        }
                         return false;
                     }
                 })
                 .build();
+    }
+
+    private void GetFab() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
     @Override
