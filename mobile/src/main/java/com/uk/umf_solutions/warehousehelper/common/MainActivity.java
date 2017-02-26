@@ -25,12 +25,16 @@ import com.uk.umf_solutions.warehousehelper.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Drawer mResult = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.custom_toolbar);
         setSupportActionBar(toolbar);
+
+
         GetFab();
         GetDrawItem();
     }
@@ -61,14 +65,14 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .build();
 
-        Drawer result = new DrawerBuilder()
+                mResult = new DrawerBuilder()
                 .withActivity(this)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
                         item1,
-                        new DividerDrawerItem(),
                         item2,
                         new DividerDrawerItem()
+
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -78,14 +82,14 @@ public class MainActivity extends AppCompatActivity {
                             String name = ((Nameable)drawerItem)
                                     .getName()
                                     .getText(MainActivity.this);
-                            switch (name){
+                            switch (position){
 
-                                case "Home":
-                                    Toast.makeText(MainActivity.this,"Home",Toast.LENGTH_SHORT)
+                                case 1:
+                                    Toast.makeText(MainActivity.this,"Home " + position,Toast.LENGTH_SHORT)
                                             .show();
                                     break;
-                                case "Settings":
-                                    Toast.makeText(MainActivity.this,"Settings",Toast.LENGTH_SHORT)
+                                case 2:
+                                    Toast.makeText(MainActivity.this,"Settings " + position,Toast.LENGTH_SHORT)
                                             .show();
                                     break;
                             }
@@ -127,5 +131,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //handle the back press :D close the drawer first and if the drawer is closed close the activity
+        if (mResult != null && mResult.isDrawerOpen()) {
+            mResult.closeDrawer();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
