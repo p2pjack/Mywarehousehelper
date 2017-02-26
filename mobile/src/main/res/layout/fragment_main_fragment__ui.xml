@@ -3,15 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="4dp"
-    tools:context="com.uk.umf_solutions.warehousehelper.ui.whereMyStockFunction.WhereMyStockFragment_UI">
+    tools:context="com.uk.umf_solutions.warehousehelper.ui.mainUI.MainFragment_UI">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/default_text" />
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:text="@string/default_text_2"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:textAlignment="center" />
 
 </FrameLayout>

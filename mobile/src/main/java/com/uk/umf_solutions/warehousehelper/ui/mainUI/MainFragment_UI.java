@@ -1,4 +1,4 @@
-package com.uk.umf_solutions.warehousehelper.ui.whereMyStockFunction;
+package com.uk.umf_solutions.warehousehelper.ui.mainUI;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.uk.umf_solutions.warehousehelper.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WhereMyStockFragment_UI extends Fragment {
+public class MainFragment_UI extends Fragment {
 
 
-    public WhereMyStockFragment_UI() {
+    public MainFragment_UI() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class WhereMyStockFragment_UI extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_where_my_stock_fragment__ui, container, false);
+        return inflater.inflate(R.layout.fragment_main_fragment__ui, container, false);
     }
 
 }
