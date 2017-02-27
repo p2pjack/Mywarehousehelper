@@ -3,8 +3,11 @@
     <string name="action_settings">Settings</string>
 
 
-    <string name="drawer_item_home">Home</string>
-    <string name="drawer_item_settings">Settings</string>
+    <string name="drawer_item_calc">Calculator</string>
+    <string name="drawer_item_barcode">Barcode Scanner</string>
+    <string name="draw_item_camera">Camera</string>
+    <string name="draw_item_web">Web site</string>
+    <string name="draw_item_email">Email</string>
     <string name="default_text">Default</string>
     <string name="default_text_2">Main Screen</string>
 

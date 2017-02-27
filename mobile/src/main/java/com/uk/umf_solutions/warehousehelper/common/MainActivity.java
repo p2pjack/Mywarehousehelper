@@ -20,10 +20,8 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
-import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.uk.umf_solutions.warehousehelper.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
     private void GetTabTitle() {
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onPageScrolled(int position,
+                                       float positionOffset, int positionOffsetPixels) {
             }
 
             @Override
@@ -84,11 +83,19 @@ public class MainActivity extends AppCompatActivity {
     private void GetDrawItem() {
         PrimaryDrawerItem item1 = new PrimaryDrawerItem()
                 .withIdentifier(1)
-                .withName(R.string.drawer_item_home);
-        SecondaryDrawerItem item2 = new SecondaryDrawerItem()
+                .withName(R.string.drawer_item_calc);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem()
                 .withIdentifier(2)
-                .withName(R.string.drawer_item_settings);
-
+                .withName(R.string.drawer_item_barcode);
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem()
+                .withIdentifier(2)
+                .withName(R.string.draw_item_camera);
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem()
+                .withIdentifier(2)
+                .withName(R.string.draw_item_web);
+        PrimaryDrawerItem item5 = new PrimaryDrawerItem()
+                .withIdentifier(2)
+                .withName(R.string.draw_item_email);
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.dmuk)
@@ -112,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
                         item1,
-                        item2,
+                        item2,item3,item4,item5,
                         new DividerDrawerItem()
 
                 )
@@ -120,27 +127,37 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         // do something with the clicked item :D
-                        if (drawerItem instanceof Nameable) {
-                            String name = ((Nameable)drawerItem)
-                                    .getName()
-                                    .getText(MainActivity.this);
+                        String name = String.valueOf(position);
                             switch (position){
-
                                 case 1:
-                                    Toast.makeText(MainActivity.this,"Home " + position,
+                                    Toast.makeText(MainActivity.this,name,
                                             Toast.LENGTH_SHORT)
                                             .show();
                                     break;
                                 case 2:
-                                    Toast.makeText(MainActivity.this,"Settings " + position,
+                                    Toast.makeText(MainActivity.this,name,
                                             Toast.LENGTH_SHORT)
                                             .show();
                                     break;
-                            }
+                                case 3:
+                                    Toast.makeText(MainActivity.this,name,
+                                            Toast.LENGTH_SHORT)
+                                            .show();
+                                    break;
+                                case 4:
+                                    Toast.makeText(MainActivity.this,name,
+                                            Toast.LENGTH_SHORT)
+                                            .show();
+                                    break;
+                                case 5:
+                                    Toast.makeText(MainActivity.this,name,
+                                            Toast.LENGTH_SHORT)
+                                            .show();
+                                    break;
+                            }return false;
                         }
-                        return false;
                     }
-                })
+                )
                 .build();
     }
 
