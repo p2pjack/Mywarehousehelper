@@ -11,4 +11,26 @@
     <string name="default_text">Default</string>
     <string name="default_text_2">Main Screen</string>
 
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_notes_added_yet">No Notes Added Yet !!!!</string>
+    <string name="no_cigma_list">No Cigma list</string>
+    <string name="no_supplier_list">No Suppliers Found</string>
+    <string name="no_wms_list">No WMS list Found</string>
+    <string name="calculator_goes_here">Calculator goes here</string>
+    <string name="title">Title</string>
+    <string name="action">Action</string>
+    <string name="some_text">some text</string>
+    <string name="message">Message</string>
+    <string name="planner_name">Planner : </string>
+    <string name="phone_number">Phone number :</string>
+    <string name="code">Code :</string>
+    <string name="email">Email :</string>
+    <string name="supplier">Supplier :-</string>
+    <string name="planner">Planner</string>
+    <string name="supplier_country">Country : </string>
+    <string name="backup_planners">Bckup Planner :</string>
+    <string name="backup_number">Backup Number :</string>
+    <string name="number_of_parts">Number Of Parts :</string>
+
 </resources>
