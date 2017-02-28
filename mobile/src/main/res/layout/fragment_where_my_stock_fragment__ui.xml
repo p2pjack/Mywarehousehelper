@@ -5,11 +5,6 @@
     android:padding="4dp"
     tools:context="com.uk.umf_solutions.warehousehelper.ui.whereMyStockFunction.WhereMyStockFragment_UI">
 
-    <TextView
-        android:id="@+id/empty_text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/default_text" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/wms_recycler_view"
