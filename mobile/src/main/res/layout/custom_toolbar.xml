@@ -1,49 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/custom_toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="0dp"
     android:background="@color/primary"
-    android:elevation="9dp"
-   android:minHeight="0dp"
-    android:padding="0dp"
+    android:gravity="bottom"
+    android:padding="@dimen/padding_default"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp"
     app:layout_scrollFlags="scroll|enterAlways"
     app:popupTheme="@style/AppTheme.PopupOverlay">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:padding="@dimen/padding_medium">
 
         <TextView
             android:id="@+id/text_info_viewpager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_centerHorizontal="false"
+            android:layout_centerInParent="false"
+            android:layout_centerVertical="false"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/default_text"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:textStyle="normal|bold"/>
-
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
 
         <TextView
             android:id="@+id/text_tab_name_viewpager"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="false"
+            android:layout_centerHorizontal="false"
+            android:layout_centerInParent="true"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/default_text"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_default"
             android:textStyle="normal|bold" />
 
-    </LinearLayout>
-
-
+    </RelativeLayout>
 </android.support.v7.widget.Toolbar>
+</LinearLayout>

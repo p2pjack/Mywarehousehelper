@@ -1,16 +1,23 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="4dp"
-    tools:context="com.uk.umf_solutions.warehousehelper.ui.mainUI.MainFragment_UI">
+    tools:context=".ui.mainUI.MainFragment_UI">
 
-    <TextView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/default_text_2"
-        android:textStyle="normal|bold"
-        android:textSize="30sp"
-        android:textAlignment="center" />
+        android:padding="@dimen/padding_default">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/default_text_2"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="normal|bold" />
+
+    </android.support.v4.widget.NestedScrollView>
 
 </FrameLayout>
