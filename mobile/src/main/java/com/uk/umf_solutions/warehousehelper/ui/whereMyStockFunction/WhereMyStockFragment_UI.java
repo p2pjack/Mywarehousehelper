@@ -25,28 +25,19 @@ public class WhereMyStockFragment_UI extends Fragment implements WmsOnClickListe
     private static final String TAG = "WhereMyStockFragment_UI";
     private static final String KEY_LAYOUT_MANAGER = "layoutManager";
     private static final int SPAN_COUNT = 2;
-
-    private enum LayoutManagerType {
-        GRID_LAYOUT_MANAGER,
-        LINEAR_LAYOUT_MANAGER
-    }
-
     protected LayoutManagerType mCurrentLayoutManagerType;
     protected RecyclerView mRecyclerView;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected WmsListAdapter mAdapter;
     protected TextView mEmptyText;
-
     public WhereMyStockFragment_UI() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,12 +58,13 @@ public class WhereMyStockFragment_UI extends Fragment implements WmsOnClickListe
         }
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
         ArrayList<whereMyStock> tempWms = new ArrayList<>();
-        mAdapter = new WmsListAdapter(tempWms,getContext(),this);
+        mAdapter = new WmsListAdapter(tempWms, getContext(), this);
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
         setRecyclerViewLayoutManager(LayoutManagerType.LINEAR_LAYOUT_MANAGER);
         return mRootView;
     }
+
     /**
      * Set RecyclerView's LayoutManager to the one given.
      *
@@ -120,5 +112,10 @@ public class WhereMyStockFragment_UI extends Fragment implements WmsOnClickListe
     @Override
     public void OnLongClickWMS(whereMyStock clickedWMS) {
 
+    }
+
+    private enum LayoutManagerType {
+        GRID_LAYOUT_MANAGER,
+        LINEAR_LAYOUT_MANAGER
     }
 }

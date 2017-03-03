@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                switch (position){
+                switch (position) {
                     case 0:
                         mTITLE = "Main";
                         mTextView_tabs.setText(mTITLE);
@@ -112,55 +112,56 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .build();
 
-                mResult = new DrawerBuilder()
+        mResult = new DrawerBuilder()
                 .withActivity(this)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
                         item1,
-                        item2,item3,item4,item5,item6,
+                        item2, item3, item4, item5, item6,
                         new DividerDrawerItem()
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        // do something with the clicked item :D
-                        String name = String.valueOf(position);
-                            switch (position){
-                                case 1:
-                                    Toast.makeText(MainActivity.this,name,
-                                            Toast.LENGTH_SHORT)
-                                            .show();
-                                    break;
-                                case 2:
-                                    Toast.makeText(MainActivity.this,name,
-                                            Toast.LENGTH_SHORT)
-                                            .show();
-                                    break;
-                                case 3:
-                                    Toast.makeText(MainActivity.this,name,
-                                            Toast.LENGTH_SHORT)
-                                            .show();
-                                    break;
-                                case 4:
-                                    Toast.makeText(MainActivity.this,name,
-                                            Toast.LENGTH_SHORT)
-                                            .show();
-                                    break;
-                                case 5:
-                                    Toast.makeText(MainActivity.this,name,
-                                            Toast.LENGTH_SHORT)
-                                            .show();
-                                    break;
+                                                   @Override
+                                                   public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                                                       // do something with the clicked item :D
+                                                       String name = String.valueOf(position);
+                                                       switch (position) {
+                                                           case 1:
+                                                               Toast.makeText(MainActivity.this, name,
+                                                                       Toast.LENGTH_SHORT)
+                                                                       .show();
+                                                               break;
+                                                           case 2:
+                                                               Toast.makeText(MainActivity.this, name,
+                                                                       Toast.LENGTH_SHORT)
+                                                                       .show();
+                                                               break;
+                                                           case 3:
+                                                               Toast.makeText(MainActivity.this, name,
+                                                                       Toast.LENGTH_SHORT)
+                                                                       .show();
+                                                               break;
+                                                           case 4:
+                                                               Toast.makeText(MainActivity.this, name,
+                                                                       Toast.LENGTH_SHORT)
+                                                                       .show();
+                                                               break;
+                                                           case 5:
+                                                               Toast.makeText(MainActivity.this, name,
+                                                                       Toast.LENGTH_SHORT)
+                                                                       .show();
+                                                               break;
 
-                                case 6:
-                                    Toast.makeText(MainActivity.this,name,
-                                            Toast.LENGTH_SHORT)
-                                            .show();
-                                    break;
-                            }return false;
-                        }
-                    }
+                                                           case 6:
+                                                               Toast.makeText(MainActivity.this, name,
+                                                                       Toast.LENGTH_SHORT)
+                                                                       .show();
+                                                               break;
+                                                       }
+                                                       return false;
+                                                   }
+                                               }
                 )
                 .build();
     }
@@ -178,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-    //handle the back press :D close the drawer first and if the drawer is closed close the activity
+        //handle the back press :D close the drawer first and if the drawer is closed close the activity
         if (mResult != null && mResult.isDrawerOpen()) {
             mResult.closeDrawer();
         } else {

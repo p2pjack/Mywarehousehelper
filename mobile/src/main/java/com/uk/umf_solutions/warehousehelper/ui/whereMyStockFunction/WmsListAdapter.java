@@ -16,17 +16,14 @@ import java.util.List;
 /**
  * Created by Eaun-Ballinger on 27/02/2017.
  *
- *
  */
 
 public class WmsListAdapter extends RecyclerView.Adapter<WmsListAdapter.WMSViewHolder> {
 
 
-
-
+    private final WmsOnClickListener mListener;
     private ThreadLocal<List<whereMyStock>> mWMS;
     private Context mContext;
-    private final WmsOnClickListener mListener;
 
     public WmsListAdapter(List<whereMyStock> wms,
                           Context mContext,
@@ -41,7 +38,7 @@ public class WmsListAdapter extends RecyclerView.Adapter<WmsListAdapter.WMSViewH
     public WMSViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View wmsView;
         wmsView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row_view_items,parent,false);
+                .inflate(R.layout.row_view_items, parent, false);
         return new WMSViewHolder(wmsView);
     }
 
@@ -62,10 +59,10 @@ public class WmsListAdapter extends RecyclerView.Adapter<WmsListAdapter.WMSViewH
     }
 
     public class WMSViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener,View.OnLongClickListener{
-                 TextView mTITLE;
-                 TextView mACTION;
-                 TextView mMESSAGE;
+            View.OnClickListener, View.OnLongClickListener {
+        TextView mTITLE;
+        TextView mACTION;
+        TextView mMESSAGE;
 
         public WMSViewHolder(View itemView) {
             super(itemView);
