@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private Toolbar mToolbar;
     private TextView mTextView_tabs;
-    private TextView mTextView_info;
     private ViewPagerAdapter mPager;
     private String mTITLE = "its null";
 
@@ -39,14 +38,10 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.custom_toolbar);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mTextView_tabs = (TextView) findViewById(R.id.text_tab_name_viewpager);
-        mTextView_info = (TextView) findViewById(R.id.text_info_viewpager);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
         mPager = new ViewPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPager);
         mViewPager.setPageTransformer(true, new CubeOutTransformer());
-        mTextView_info.setText(R.string.app_name);
         GetTabTitle();
         GetFab();
         GetDrawItem();
