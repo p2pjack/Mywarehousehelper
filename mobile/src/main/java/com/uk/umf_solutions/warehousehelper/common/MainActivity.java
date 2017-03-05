@@ -1,13 +1,15 @@
 package com.uk.umf_solutions.warehousehelper.common;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
@@ -27,25 +29,46 @@ public class MainActivity extends AppCompatActivity {
     private Drawer mResult = null;
     private ViewPager mViewPager;
     private Toolbar mToolbar;
-    private TextView mTextView_tabs;
     private ViewPagerAdapter mPager;
-    private String mTITLE = "its null";
+
+    private Activity mActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mToolbar = (Toolbar) findViewById(R.id.custom_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mTextView_tabs = (TextView) findViewById(R.id.text_tab_name_viewpager);
         setSupportActionBar(mToolbar);
         mPager = new ViewPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPager);
         mViewPager.setPageTransformer(true, new CubeOutTransformer());
-        GetTabTitle();
+        mActivity =this;
+        //GetTabTitle();
         GetFab();
         GetDrawItem();
     }
+
+    @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+               // Inflate the menu; this adds items to the action bar if it is present.
+                       getMenuInflater().inflate(R.menu.menu_main, menu);
+                return true;
+           }
+
+             @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+               // Handle action bar item clicks here. The action bar will
+                        // automatically handle clicks on the Home/Up button, so long
+                                // as you specify a parent activity in AndroidManifest.xml.
+                                        int id = item.getItemId();
+
+                        //noinspection SimplifiableIfStatement
+                               if (id == R.id.action_settings) {
+                        return true;
+                    }
+                        return super.onOptionsItemSelected(item);
+            }
 
     private void GetTabTitle() {
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -56,16 +79,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                switch (position) {
-                    case 0:
-                        mTITLE = "Main";
-                        mTextView_tabs.setText(mTITLE);
-                        break;
-                    case 1:
-                        mTITLE = "WMS";
-                        mTextView_tabs.setText(mTITLE);
-                        break;
-                }
+//                switch (position) {
+//                    case 0:
+//                        mTITLE = "Main";
+//                        mTextView_tabs.setText(mTITLE);
+//                        break;
+//                    case 1:
+//                        mTITLE = "WMS";
+//                        mTextView_tabs.setText(mTITLE);
+//                        break;
+//                }
             }
 
             @Override
@@ -114,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
 
         mResult = new DrawerBuilder()
                 .withActivity(this)
+                .withToolbar(mToolbar)
+                .withTranslucentStatusBar(false)
+                .withActionBarDrawerToggle(true)
+                .withDisplayBelowStatusBar(false)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
                         item1,
