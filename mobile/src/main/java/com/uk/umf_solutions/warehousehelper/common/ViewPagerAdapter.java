@@ -15,6 +15,7 @@ import com.uk.umf_solutions.warehousehelper.ui.whereMyStockFunction.WhereMyStock
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
+    private String tabtitles[] = new String[] { "Main", "MMS", "CIGMA" };
     private int MAX_PAGES = 2;
     private Context mContext;
 
@@ -42,5 +43,10 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return MAX_PAGES;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return tabtitles[position];
     }
 }

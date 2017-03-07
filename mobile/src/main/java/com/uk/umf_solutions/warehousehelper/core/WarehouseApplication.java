@@ -49,14 +49,14 @@ public class WarehouseApplication extends Application {
         Realm realm = Realm.getDefaultInstance();
 
         try {
-            WmsPrimaryKey = new AtomicLong(realm.where(whereMyStock.class).max("wmsId").longValue());
+            WmsPrimaryKey = new AtomicLong(realm.where(whereMyStock.class).max("id").longValue());
         } catch (Exception e) {
             realm.beginTransaction();
             whereMyStock transaction = new whereMyStock();
-            transaction.setWmsId(0);
+            transaction.setId(0);
             realm.copyToRealm(transaction);
-            WmsPrimaryKey = new AtomicLong(realm.where(whereMyStock.class).max("wmsId").longValue());
-            RealmResults<whereMyStock> results = realm.where(whereMyStock.class).equalTo("wmsId", 0).findAll();
+            WmsPrimaryKey = new AtomicLong(realm.where(whereMyStock.class).max("id").longValue());
+            RealmResults<whereMyStock> results = realm.where(whereMyStock.class).equalTo("id", 0).findAll();
             results.deleteAllFromRealm();
             realm.commitTransaction();
         }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -26,12 +27,11 @@ import com.uk.umf_solutions.warehousehelper.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final ThreadLocal<Activity> mActivity = new ThreadLocal<>();
     private Drawer mResult = null;
     private ViewPager mViewPager;
     private Toolbar mToolbar;
     private ViewPagerAdapter mPager;
-
-    private Activity mActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +40,15 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         setSupportActionBar(mToolbar);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
         mPager = new ViewPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPager);
         mViewPager.setPageTransformer(true, new CubeOutTransformer());
-        mActivity =this;
+        mActivity.set(this);
         //GetTabTitle();
         GetFab();
         GetDrawItem();
