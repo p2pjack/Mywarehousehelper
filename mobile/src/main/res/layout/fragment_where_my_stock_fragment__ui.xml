@@ -5,6 +5,15 @@
     android:padding="@dimen/padding_default"
     tools:context=".ui.whereMyStockFunction.WhereMyStockFragment_UI">
 
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/wms_recycler_view"
         android:layout_width="match_parent"

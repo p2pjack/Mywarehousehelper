@@ -30,6 +30,7 @@ public class WhereMyStockFragment_UI extends Fragment implements WmsOnClickListe
     protected RecyclerView.LayoutManager mLayoutManager;
     protected WmsListAdapter mAdapter;
     protected TextView mEmptyText;
+
     public WhereMyStockFragment_UI() {
         // Required empty public constructor
     }
@@ -44,6 +45,7 @@ public class WhereMyStockFragment_UI extends Fragment implements WmsOnClickListe
                              Bundle savedInstanceState) {
         View mRootView = inflater.inflate(R.layout.fragment_where_my_stock_fragment__ui, container, false);
         mRootView.setTag(TAG);
+        mEmptyText = (TextView) mRootView.findViewById(R.id.empty_text);
         mRecyclerView = (RecyclerView) mRootView.findViewById(R.id.wms_recycler_view);
         // LinearLayoutManager is used here, this will layout the elements in a similar fashion
         // to the way ListView would layout elements. The RecyclerView.LayoutManager defines how
@@ -102,6 +104,18 @@ public class WhereMyStockFragment_UI extends Fragment implements WmsOnClickListe
         // Save currently selected layout manager.
         savedInstanceState.putSerializable(KEY_LAYOUT_MANAGER, mCurrentLayoutManagerType);
         super.onSaveInstanceState(savedInstanceState);
+    }
+
+
+    public void showEmptyText() {
+        mEmptyText.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.GONE);
+    }
+
+
+    public void hideEmptyText() {
+        mEmptyText.setVisibility(View.GONE);
+        mRecyclerView.setVisibility(View.VISIBLE);
     }
 
     @Override

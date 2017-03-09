@@ -22,7 +22,7 @@ public class WmsRealmRepository implements WmsContractList {
 
     private final static String LOG_TAG = WmsRealmRepository.class.getSimpleName();
 
-    public WmsRealmRepository(){
+    public WmsRealmRepository() {
 
     }
 

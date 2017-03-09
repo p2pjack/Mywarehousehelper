@@ -11,36 +11,54 @@ import java.util.List;
  */
 
 public interface WmsContractList {
-    public interface View{
-        void showCustomers(List<whereMyStock> customers);
-        void showAddCustomerForm();
-        void showDeleteCustomerPrompt(whereMyStock wms);
-        void showEditCustomerForm(whereMyStock wms);
+    public interface View {
+        void showWmsList(List<whereMyStock> customers);
+
+        void showAddWmsForm();
+
+        void showDeleteWmsPrompt(whereMyStock wms);
+
+        void showEditWmsForm(whereMyStock wms);
+
         void showEmptyText();
+
         void hideEmptyText();
+
         void showMessage(String message);
 
     }
 
-    public interface Actions{
-        void loadCustomers();
-        whereMyStock getCustomer(long id);
-        void onCustomerSelected(whereMyStock wms);
-        void onAddCustomerButtonClicked();
-        void addCustomer(whereMyStock wms);
-        void onDeleteCustomerButtonClicked(whereMyStock wms);
-        void deleteCustomer(whereMyStock wms);
-        void onEditCustomerButtonClicked(whereMyStock wms);
-        void updateCustomer(whereMyStock wms);
+    public interface Actions {
+        void loadWmsList();
+
+        whereMyStock getWms(long id);
+
+        void onWmsSelected(whereMyStock wms);
+
+        void onAddWmsButtonClicked();
+
+        void addWms(whereMyStock wms);
+
+        void onDeleteWmsButtonClicked(whereMyStock wms);
+
+        void deleteWms(whereMyStock wms);
+
+        void onEditWmsButtonClicked(whereMyStock wms);
+
+        void updateWms(whereMyStock wms);
 
     }
 
-    public interface Repository{
-        List<whereMyStock> getAllCustomers();
-        whereMyStock getCustomerById(long id);
-        void deleteCustomer(whereMyStock wms, OnDatabaseOperationCompleteListener listener);
-        void addCustomer(whereMyStock wms, OnDatabaseOperationCompleteListener listener);
-        void updateCustomer(whereMyStock wms, OnDatabaseOperationCompleteListener listener);
+    public interface Repository {
+        List<whereMyStock> getAllWmsList();
+
+        whereMyStock getWmsById(long id);
+
+        void deleteWms(whereMyStock wms, OnDatabaseOperationCompleteListener listener);
+
+        void addWms(whereMyStock wms, OnDatabaseOperationCompleteListener listener);
+
+        void updateWms(whereMyStock wms, OnDatabaseOperationCompleteListener listener);
 
     }
 }
